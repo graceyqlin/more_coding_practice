@@ -1,4 +1,22 @@
 #LC835.Image_Overlap
+
+# You are given two images img1 and img2 both of size n x n, 
+# represented as binary, square matrices of the same size. 
+# (A binary matrix has only 0s and 1s as values.)
+
+# We translate one image however we choose (sliding it left, right, up,
+# or down any number of units), and place it on top of the other image. 
+# fter, the overlap of this translation is the number of positions that 
+# ave a 1 in both images.
+
+# (Note also that a translation does not include any kind of rotation.)
+
+# What is the largest possible overlap?
+# Example:
+# Input: img1 = [[1,1,0],[0,1,0],[0,1,0]], 
+# img2 = [[0,0,0],[0,1,1],[0,0,1]]
+# Output: 3
+
 class Solution:
     def largestOverlap(self, A: List[List[int]], B: List[List[int]]) -> int:
         
