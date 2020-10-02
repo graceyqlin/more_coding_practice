@@ -11,7 +11,7 @@
 # Note: The length of given array won't exceed 10000.
 
 class Solution:
-    def nextGreaterElements(self, nums: List[int]) -> List[int]:
+    def nextGreaterElements(self, nums):
         extended_nums = nums + nums
         stack = []
         
@@ -34,3 +34,8 @@ class Solution:
         
         
         return results[:len(nums)]
+
+
+s1 = Solution()
+
+print(s1.nextGreaterElements([1,2,3,1]))
