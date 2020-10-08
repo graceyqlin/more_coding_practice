@@ -22,7 +22,7 @@ def find_route_bfs(graph, node1, node2):
                 visited.append(next_node)
                 queue.append(next_node)
     
-    print(visited)
+    # print(visited)
     
     return node2 in visited
 
@@ -44,7 +44,7 @@ def find_route_dfs(graph, node1, node2):
                     stack.append(next_node)
             visited.append(current_node)
 
-    print(visited)
+    # print(visited)
      
     return node2 in visited
 
