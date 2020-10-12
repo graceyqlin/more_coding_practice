@@ -1,5 +1,5 @@
-import graph_find_route_between_nodes as graphs
-import Graph_Detect_Cycle
+import 1.graph_find_route_between_nodes as graphs
+import 7.Graph_Detect_Cycle
 
 tree_graph = {
   'A' : ['B','C'],
@@ -79,7 +79,7 @@ cross_edge_graph = {
   'B' : ['D', 'E', 'C'],
   'C' : ['F'],
   'D' : [],
-  'E' : ['G', 'B'],
+  'E' : ['G'],
   'F' : [],
   'G' : []
 }
