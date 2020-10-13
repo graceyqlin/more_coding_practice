@@ -1,4 +1,4 @@
-# 170.Two_Sum_III_Data_structure_design.py
+# LC170.Two_Sum_III_Data_structure_design.py
 # Topics: Design, Hash Table
 
 # Design a data structure that accepts a stream of integers and checks if it has a pair of integers that sum up to a particular value.
