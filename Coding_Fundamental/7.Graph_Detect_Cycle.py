@@ -5,7 +5,7 @@
 #         return
 
 cross_edge_graph = {
-  'A' : ['B','C'],
+  'A' : ['B'],
   'B' : ['D', 'E', 'C'],
   'C' : ['A', 'F'],
   'D' : [],
@@ -22,7 +22,7 @@ def get_next_val(graph, current_node, directions, cycle_indicator):
     directions.append(current_node)
 
     if len(directions) > 20:
-        cycle_indicator = True
+        cycle_indicator[0] = True
         print(cycle_indicator)
         # return cycle_indicator
         return 'there is a cycle'
@@ -31,10 +31,11 @@ def get_next_val(graph, current_node, directions, cycle_indicator):
     next_node_list = graph[current_node]
     for next_node in next_node_list:
         get_next_val(graph, next_node, directions, cycle_indicator)
+    # return None
 
 directions = []
 num_run = 0
-cycle_indicator = False
+cycle_indicator = [False]
 print(get_next_val(cross_edge_graph, 'A', directions, cycle_indicator)) 
 print(cycle_indicator)
 print(directions)

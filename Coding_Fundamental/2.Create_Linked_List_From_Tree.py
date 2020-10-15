@@ -64,14 +64,16 @@ def get_linked_list_from_tree(root_node):
 
 	node_to_level_map = get_levels_for_nodes(root_node)
 
-	dummy = current_list_node = ListNode(0)
+    # Creates an empty initial list head to avoid conditionally
+    # creating / adding to a linked list later
+	empty_head = current_list_node = ListNode(0)
 
 	for level in node_to_level_map:
 		for node_val in node_to_level_map[level]:
 			current_list_node.next = ListNode(node_val)
 			current_list_node = current_list_node.next
 
-	return dummy.next
+	return empty_head.next
 
 print(get_linked_list_from_tree(t1))
 
