@@ -1,5 +1,5 @@
 # LC264.Ugly_Number_II.py
-#Topics: Dymanic Programming, Math, Heap
+#Topics: Dymanic_Programming, Math, Heap
 # Write a program to find the n-th ugly number.
 
 # Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. 
