@@ -57,47 +57,47 @@ dependencies = [('e', 'a'), ('e', 'c'), ('e', 'd'), ('c', 'b'), ('d', 'b')]
 
 
 
-def get_project_order_dfs(projects, dependencies):
-	import collections
-	graph = collections.defaultdict(list)
+# def get_project_order_dfs(projects, dependencies):
+# 	import collections
+# 	graph = collections.defaultdict(list)
 
-	for item in dependencies:
-		late_project = item[0]
-		prior_project = item[1]
-		graph[prior_project].append(late_project)
+# 	for item in dependencies:
+# 		late_project = item[0]
+# 		prior_project = item[1]
+# 		graph[prior_project].append(late_project)
 
-	prior_list = set([item[1] for item in dependencies])
-	late_list = set([item[0] for item in dependencies])
+# 	prior_list = set([item[1] for item in dependencies])
+# 	late_list = set([item[0] for item in dependencies])
 
-	root_list = list(prior_list - late_list)
+# 	root_list = list(prior_list - late_list)
 
 	
-	stack = []
-	visited = []
+# 	stack = []
+# 	visited = []
 
-	def get_val_dfs(current, visited):
-		if not current:
-			return
-		if current not in visited:
-			visited.append(current)
-		next_list = graph[current]
-		if next_list:
-			for next_val in next_list:
-				get_val_dfs(next_val, visited)
+# 	def get_val_dfs(current, visited):
+# 		if not current:
+# 			return
+# 		if current not in visited:
+# 			visited.append(current)
+# 		next_list = graph[current]
+# 		if next_list:
+# 			for next_val in next_list:
+# 				get_val_dfs(next_val, visited)
 
-		# return visited
+# 		# return visited
 
-	while root_list:
-		root = root_list.pop()
-		get_val_dfs(root, visited)
+# 	while root_list:
+# 		root = root_list.pop()
+# 		get_val_dfs(root, visited)
 
-	for project in projects:
-		if project not in prior_list and project not in late_list:
-			visited.append(project)
+# 	for project in projects:
+# 		if project not in prior_list and project not in late_list:
+# 			visited.append(project)
 
-	return visited
+# 	return visited
 
-print(get_project_order_dfs(projects, dependencies))
+# print(get_project_order_dfs(projects, dependencies))
 
 
 def get_dependancy_order(projects, dependencies):

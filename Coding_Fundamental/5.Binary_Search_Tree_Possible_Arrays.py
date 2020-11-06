@@ -28,4 +28,63 @@ t9.left = t7
 t10.left = t12
 
 
+# from binarytree import  Node, bst, pprint
+
+def weave_list(first_list, second_list, weaved, prefix):
+
+    if not first_list or not second_list:
+       tmp = []
+       tmp += prefix
+
+       if first_list:
+          tmp += first_list
+
+       if second_list:   
+          tmp += second_list
+
+       weaved.append(tmp)
+
+       return
+
+    if first_list:
+        fitem_first_list = first_list.pop(0)
+        prefix.append(fitem_first_list)
+        weave_list(first_list, second_list, weaved, prefix)
+
+        prefix.pop()
+        first_list.insert(0, fitem_first_list)
+
+    if second_list:
+        fitem_second_list = second_list.pop(0)
+        prefix.append(fitem_second_list)
+        weave_list(first_list, second_list, weaved, prefix)
+
+        prefix.pop()
+        second_list.insert(0, fitem_second_list)        
+
+
+def allsequences(root):
+    result = []
+    if root == None:
+       return result
+
+    prefix = []
+    prefix.append(root.val)
+
+    left = allsequences(root.left) or [[]]
+    right = allsequences(root.right) or [[]]
+    
+
+    for i in range(len(left)):
+        for j in range(len(right)):
+            weaved = []
+            weave_list(left[i], right[j], weaved, prefix)
+
+        result += weaved
+
+    return result
+
+
+print(allsequences(t6))
+
 
