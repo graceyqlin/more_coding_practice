@@ -17,46 +17,40 @@ tree_graph = {
   'G' : []
 }
 
-# def find_route_bfs(graph, node1, node2):
-#     queue = []
-#     visited = set()
+def find_route_bfs(graph, node1, node2):
+    queue = []
+    visited = set()
     
-#     queue.append(node1)
-#     visited.add(node1)
+    queue.append(node1)
+    visited.add(node1)
     
-#     while queue:
-#         current_node = queue.pop(0)
-#         next_node_list = graph[current_node]
-#         for next_node in next_node_list:
-#             if next_node not in visited:
-#                 visited.add(next_node)
-#                 queue.append(next_node)
+    while queue:
+        current_node = queue.pop(0)
+        next_node_list = graph[current_node]
+        for next_node in next_node_list:
+            if next_node not in visited:
+                visited.add(next_node)
+                queue.append(next_node)
     
-#     # print(visited)
-    
-#     return node2 in visited
+    return node2 in visited
 
-# def find_route_dfs(graph, node1, node2):
-#     stack = []
-#     visited = []
+def find_route_dfs(graph, node1, node2):
+    stack = []
+    visited = []
     
-#     stack.append(node1)
+    stack.append(node1)
     
-#     while stack:
-        
-#         current_node = stack.pop()
-
-#         if current_node not in visited:
-#         	# visited.append(current_node)
-#             next_node_list = graph[current_node]
-#             for next_node in next_node_list:
-#                 if next_node not in visited:
-#                     stack.append(next_node)
-#             visited.append(current_node)
-
-#     # print(visited)
-     
-#     return node2 in visited
+    while stack:     
+        current_node = stack.pop()
+        if current_node not in visited:
+        	# visited.append(current_node)
+            next_node_list = graph[current_node]
+            for next_node in next_node_list:
+                if next_node not in visited:
+                    stack.append(next_node)
+            visited.append(current_node)
+            
+    return node2 in visited
 
 # find route dfs recursive
 # Purpose
@@ -73,19 +67,6 @@ def find_route_dfs_recursive(graph, visiting_node, target_node, visited):
             node_exists = find_route_dfs_recursive(graph, next_node, node2, visited)
             if node_exists: return True
     return False
-
-
-
-
-    # if not node1:
-    #     return
-    # visited.append(node1)
-    # next_node_list = graph[node1]
-
-    # while next_node_list:
-    #     node1 = next_node_list.pop(0)
-    #     find_route_dfs_recursive(graph, node1, node2, visited)
-
 
 
 

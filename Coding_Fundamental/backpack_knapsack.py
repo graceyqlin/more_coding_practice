@@ -7,33 +7,31 @@
 
 # output: 9 ( Load 4 and 5.)
 
-# 在n个物品中挑选若干物品装入背包，最多能装多满？假设背包的大小为m
+def get_max(input_array, backpack):
+  if backpack == 0:
+    return 0
+  if len(input_array) == 0:
+    return 0
 
-# def get_max(input_array, backpack):
-#   if backpack == 0:
-#     return 0
-#   if len(input_array) == 0:
-#     return 0
+  n = len(input_array)
+  m = backpack
+  dp = [[0] * (backpack + 1) for _ in range(n+1)]
 
-#   n = len(input_array)
-#   m = backpack
-#   dp = [[0] * (backpack + 1) for _ in range(n+1)]
+  dp[0][0] = 1 
 
-#   dp[0][0] = 1 # i don't know why the initialization is 1
+  for row in range(1, n+1):
+    for col in range(1, m+1):
+      if input_array[row-1] <= col:
+        dp[row][col] = max(dp[row-1][col - input_array[row-1]] + input_array[row-1], dp[row-1][col])
+      else:
+        dp[row][col] = dp[row-1][col]
+  print(dp)
+  return dp[-1][-1]
 
-#   for row in range(1, n+1):
-#     for col in range(1, m+1):
-#       if input_array[row-1] <= col:
-#         dp[row][col] = max(dp[row-1][col - input_array[row-1]] + input_array[row-1], dp[row-1][col])
-#       else:
-#         dp[row][col] = dp[row-1][col]
-#   print(dp)
-#   return dp[-1][-1]
+input_array = [3, 4, 8, 5]
+backpack = 10
 
-# input_array = [3, 4, 8, 5]
-# backpack = 10
-
-# print(get_max(input_array, backpack))
+print(get_max(input_array, backpack))
 
 
 
